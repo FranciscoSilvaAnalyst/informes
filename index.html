@@ -35,13 +35,16 @@
     const b = q.get('b') || 'reports'; // bucket
     const r = q.get('r');            // compatibilidad con enlaces antiguos
 
+    // Proyecto por defecto (se usa si el enlace no trae ?p=)
+    const PROYECTO_DEF = 'pribbxgbgfquxufjbghi';
+
     let href;
-    if (p && i) {
-      // Solo se aceptan identificadores seguros y siempre dentro de supabase.co
-      if (!/^[a-z0-9]+$/i.test(p)) throw new Error('Proyecto no válido.');
+    if (i) {
+      const proj = p || PROYECTO_DEF;
+      if (!/^[a-z0-9]+$/i.test(proj)) throw new Error('Proyecto no válido.');
       if (!/^[a-z0-9._-]+$/i.test(i)) throw new Error('Identificador de informe no válido.');
       if (!/^[a-z0-9._-]+$/i.test(b)) throw new Error('Bucket no válido.');
-      href = 'https://' + p + '.supabase.co/storage/v1/object/public/' + b + '/' + i + '/index.html';
+      href = 'https://' + proj + '.supabase.co/storage/v1/object/public/' + b + '/' + i + '/index.html';
     } else if (r) {
       const u = new URL(r);
       if (!/\.supabase\.co$/i.test(u.hostname)) throw new Error('Origen no permitido.');
