@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tactical Analyst — Informe</title>
+<style>
+  body{background:#13100c;color:#f2ede4;font-family:'Consolas','IBM Plex Mono',monospace;
+       display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:20px;}
+  .box{text-align:center;max-width:420px;}
+  .brand{font-weight:900;font-size:20px;letter-spacing:1px;margin-bottom:6px;}
+  .brand span{color:#e3a23e;}
+  .sub{font-size:10px;letter-spacing:2px;color:#8d8474;margin-bottom:22px;}
+  #msg{font-size:12px;color:#8d8474;line-height:1.7;}
+  .err{color:#e05a52;}
+  .spin{display:inline-block;width:14px;height:14px;border:2px solid #3a352c;
+        border-top-color:#e3a23e;border-radius:50%;animation:r .8s linear infinite;vertical-align:-2px;margin-right:8px;}
+  @keyframes r{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="brand">TACTICAL <span>ANALYST</span></div>
+  <div class="sub">FRANCISCO SILVA · ANÁLISIS TÁCTICO</div>
+  <div id="msg"><span class="spin"></span>Cargando informe…</div>
+</div>
+<script>
+(async () => {
+  const msg = document.getElementById('msg');
+  const fail = t => { msg.className = 'err'; msg.textContent = '⚠ ' + t; };
+  try {
+    const q = new URLSearchParams(location.search);
+    const p = q.get('p');            // referencia del proyecto Supabase
+    const i = q.get('i');            // carpeta del informe
+    const b = q.get('b') || 'reports'; // bucket
+    const r = q.get('r');            // compatibilidad con enlaces antiguos
+
+    let href;
+    if (p && i) {
+      // Solo se aceptan identificadores seguros y siempre dentro de supabase.co
+      if (!/^[a-z0-9]+$/i.test(p)) throw new Error('Proyecto no válido.');
+      if (!/^[a-z0-9._-]+$/i.test(i)) throw new Error('Identificador de informe no válido.');
+      if (!/^[a-z0-9._-]+$/i.test(b)) throw new Error('Bucket no válido.');
+      href = 'https://' + p + '.supabase.co/storage/v1/object/public/' + b + '/' + i + '/index.html';
+    } else if (r) {
+      const u = new URL(r);
+      if (!/\.supabase\.co$/i.test(u.hostname)) throw new Error('Origen no permitido.');
+      if (!u.pathname.startsWith('/storage/v1/object/public/')) throw new Error('Ruta no válida.');
+      href = u.href;
+    } else {
+      throw new Error('Falta el enlace del informe.');
+    }
+
+    const res = await fetch(href);
+    if (res.status === 404) throw new Error('El informe no existe o fue eliminado.');
+    if (!res.ok) throw new Error('No se pudo cargar el informe (' + res.status + ').');
+    const html = await res.text();
+    document.open();
+    document.write(html);
+    document.close();
+  } catch (e) {
+    fail(e.message);
+  }
+})();
+</script>
+</body>
+</html>
