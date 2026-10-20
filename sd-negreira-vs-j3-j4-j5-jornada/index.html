@@ -504,17 +504,17 @@ svg.pitch{width:100%;display:block;border-radius:4px;}
 <div class="layout">
   <nav class="sidebar" id="sidebar">
     <h3>— SECCIONES</h3>
-    <a href="#ficha" class="active"><span class="idx">01</span>Ficha del Partido</a>
-    <a href="#once" class=""><span class="idx">02</span>Once Inicial</a>
+    <a href="#ficha" class=""><span class="idx">01</span>Ficha del Partido</a>
+    <a href="#once" class="active"><span class="idx">02</span>Once Inicial</a>
     
-    <a href="#ofensiva" class=""><span class="idx">04</span>Fase Ofensiva</a>
-    <a href="#transda" class=""><span class="idx">05</span>Trans. Def.-Ataque</a>
-    <a href="#defensiva" class=""><span class="idx">06</span>Fase Defensiva</a>
+    <a href="#ofensiva"><span class="idx">04</span>Fase Ofensiva</a>
+    <a href="#transda"><span class="idx">05</span>Trans. Def.-Ataque</a>
+    <a href="#defensiva"><span class="idx">06</span>Fase Defensiva</a>
     
-    <a href="#abp" class=""><span class="idx">08</span>Balón Parado</a>
+    <a href="#abp"><span class="idx">08</span>Balón Parado</a>
     
     
-    <a href="#fuertes" class=""><span class="idx">11</span>Fuertes / Débiles</a>
+    <a href="#fuertes"><span class="idx">11</span>Fuertes / Débiles</a>
     
     <div class="firma">SISTEMA DE ANÁLISIS<br>© <span data-bind="meta.temporada" data-ph="2026/2027">2026/2027</span> TACTICAL ANALYST</div>
   </nav>
@@ -523,7 +523,7 @@ svg.pitch{width:100%;display:block;border-radius:4px;}
 
     <div class="print-header">
       <div class="ph-brand">TACTICAL <span>ANALYST</span></div>
-      <div class="ph-meta">Informe para el cuerpo técnico<br>Francisco Silva · Analista Táctico<br><span id="phFecha">20 de octubre de 2026</span></div>
+      <div class="ph-meta">Informe para el cuerpo técnico<br>Francisco Silva · Analista Táctico<br><span id="phFecha">21 de octubre de 2026</span></div>
     </div>
 
     <!-- 01 FICHA -->
@@ -709,11 +709,11 @@ svg.pitch{width:100%;display:block;border-radius:4px;}
       
         <div class="subbloque">
           <h4><span data-subtit="ofensiva:0" data-ph="Construcción desde atrás">Construcción desde atrás</span></h4>
-          <div class="texto" data-bind="fases.ofensiva.subs.0" data-ph="Salida de balón, estructura de inicio, presión rival sufrida...">Salida cuatro + pivotes. Con presión, los dos pivotes ayudan y el 8 baja a construir con la línea defensiva.<br>Portero participativo en la construcción. Los dos centrales son buenos en la salida desde atrás. Número 6 rompe líneas con conducción.&nbsp;<br>Tienen mucha paciencia en la construcción, circulando el balón para encontrar espacios en los carriles exteriores.&nbsp;</div>
+          <div class="texto" data-bind="fases.ofensiva.subs.0" data-ph="Salida de balón, estructura de inicio, presión rival sufrida..."></div>
         </div>
         <div class="subbloque">
           <h4><span data-subtit="ofensiva:1" data-ph="Progresión por zonas">Progresión por zonas</span></h4>
-          <div class="texto" data-bind="fases.ofensiva.subs.1" data-ph="Carriles utilizados, tercer hombre, conducciones, pases progresivos...">Progresan por bandas.&nbsp;<br>Extremos y delantero fijan última línea defensiva para generar espacios.&nbsp;</div>
+          <div class="texto" data-bind="fases.ofensiva.subs.1" data-ph="Carriles utilizados, tercer hombre, conducciones, pases progresivos..."></div>
         </div>
         <div class="subbloque">
           <h4><span data-subtit="ofensiva:2" data-ph="Creación y finalización">Creación y finalización</span></h4>
@@ -930,7 +930,7 @@ svg.pitch{width:100%;display:block;border-radius:4px;}
       
         <div class="subbloque">
           <h4><span data-subtit="transda:0" data-ph="Primera acción tras robo">Primera acción tras robo</span></h4>
-          <div class="texto" data-bind="fases.transda.subs.0" data-ph="¿Verticalidad inmediata o pausa? Primer pase, orientación del juego...">Tras la recuperación de balón, muestran una clara intencionalidad de atacar de forma vertical y directa la portería rival.</div>
+          <div class="texto" data-bind="fases.transda.subs.0" data-ph="¿Verticalidad inmediata o pausa? Primer pase, orientación del juego..."></div>
         </div>
         
         
@@ -1025,15 +1025,15 @@ svg.pitch{width:100%;display:block;border-radius:4px;}
       
         <div class="subbloque">
           <h4><span data-subtit="defensiva:0" data-ph="Altura del bloque y estructura">Altura del bloque y estructura</span></h4>
-          <div class="texto" data-bind="fases.defensiva.subs.0" data-ph="Bloque alto/medio/bajo, distancias entre líneas, basculaciones...">Bloque medio, líneas muy juntas, cierran por dentro.<div>VS Miño, presión pasiva en la salida rival al inicio. Tras el 0-1 (14') pasan a presión alta con 5 jugadores en la salida rival, condicionando la salida por el lado derecho.</div></div>
+          <div class="texto" data-bind="fases.defensiva.subs.0" data-ph="Bloque alto/medio/bajo, distancias entre líneas, basculaciones..."></div>
         </div>
         <div class="subbloque">
           <h4><span data-subtit="defensiva:1" data-ph="Pressing y recuperación">TRANSICIÓN de</span></h4>
-          <div class="texto" data-bind="fases.defensiva.subs.1" data-ph="Gatillos de presión, hombre de salto, zonas de recuperación, PPDA percibido...">Tras pérdida de balón, su prioridad es la rápida recomposición estructural con orientación a cerrar pasillos interiores</div>
+          <div class="texto" data-bind="fases.defensiva.subs.1" data-ph="Gatillos de presión, hombre de salto, zonas de recuperación, PPDA percibido..."></div>
         </div>
         <div class="subbloque">
           <h4><span data-subtit="defensiva:2" data-ph="Defensa del área">Defensa del área</span></h4>
-          <div class="texto" data-bind="fases.defensiva.subs.2" data-ph="Marcajes, vigilancias, duelos aéreos, segundas jugadas...">Estructura muy compacta y cerrada en zonas interiores, priorizando la densidad en el carril central</div>
+          <div class="texto" data-bind="fases.defensiva.subs.2" data-ph="Marcajes, vigilancias, duelos aéreos, segundas jugadas..."></div>
         </div>
     </div>
     <div class="clips">
@@ -1390,7 +1390,7 @@ svg.pitch{width:100%;display:block;border-radius:4px;}
           <div id="fdDebiles">
       <div class="fd-item">
         <span class="mark">▼</span>
-        <span class="txt" data-list="debiles" data-idx="0" data-field="" data-ph="Escribe un punto..."><div>Encajan con frecuencia, han recibido gol en 4 de los últimos 5 partidos. En J7 iban 2-0 y el Puebla empató en 13 minutos.</div><div>&nbsp;Presión irregular,alternan tramos de presión pasiva en la salida rival (inicio vs Miño) con presión alta de cinco.</div><div>&nbsp;Disciplina&nbsp; Márquez García expulsado por doble amarilla en J6, Lagares con amarilla en J5, J6 y J7&nbsp;</div></span>
+        <span class="txt" data-list="debiles" data-idx="0" data-field="" data-ph="Escribe un punto..."></span>
         
       </div></div>
           
